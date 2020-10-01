@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import './style.css'
 
-export default function Product({ match }) {
+export default function Product() {
 
+    const { id } = useParams()
     const [product, setProduct] = useState({})
 
     useEffect(() => {
         parametro()
-
-    })
+        //eslint-disable-next-line
+    }, [])
 
 
     async function parametro() {
-        const { id } = match.params
-
         const response = await api.get(`/products/${id}`)
         setProduct(response.data)
 
