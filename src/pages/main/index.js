@@ -13,7 +13,7 @@ export default function Main() {
     //useEffect
     useEffect(() => {
         loadProducts()
-    })
+    }, [])
 
     async function loadProducts(page = 1) {
         const response = await api.get(`/products?page=${page}`)
